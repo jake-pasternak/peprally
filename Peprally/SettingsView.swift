@@ -33,7 +33,7 @@ struct SettingsView: View {
         var id: String { rawValue }
     }
 
-    private var handle: String { model.handle.isEmpty ? "jake" : model.handle }
+    private var handle: String { model.handle.isEmpty ? "member" : model.handle }
 
     var body: some View {
         ZStack {

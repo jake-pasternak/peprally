@@ -16,7 +16,7 @@ enum DisplayFormat {
                                0xEAEAEA, 0xDCDCDC, 0xE4E4E4, 0xEFEFEF]
         var hash = 5381
         for byte in seed.utf8 { hash = ((hash << 5) &+ hash) &+ Int(byte) }
-        return palette[abs(hash) % palette.count]
+        return palette[Int(hash.magnitude % UInt(palette.count))]
     }
 
     static func relative(_ iso: String) -> String {

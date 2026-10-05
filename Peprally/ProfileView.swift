@@ -34,7 +34,7 @@ struct ProfileView: View {
     }
 
     private var handle: String {
-        model.handle.isEmpty ? "jake" : model.handle
+        model.handle.isEmpty ? "member" : model.handle
     }
     private var topics: [String] {
         model.followedPeptides.isEmpty
@@ -403,7 +403,7 @@ private struct EditProfileSheet: View {
         .presentationDetents([.height(360)])
         .presentationCornerRadius(24)
         .onAppear {
-            handle = model.handle.isEmpty ? "jake" : model.handle
+            handle = model.handle
         }
     }
 

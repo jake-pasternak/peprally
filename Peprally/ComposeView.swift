@@ -1,7 +1,7 @@
 import SwiftUI
 import PhotosUI
 
-/// The composer, Coinbase-order anatomy: the question IS the amount —
+/// The composer, laid out like an order ticket: the question IS the amount —
 /// giant type up top, a "reaches 2.1k members" conversion line, then
 /// Topic and Attach as chevron rows, and one big Post button. Ask/Poll
 /// switch like Buy/Sell.
@@ -229,7 +229,7 @@ struct ComposeView: View {
         }
     }
 
-    /// A Coinbase order row: icon circle, bold title + gray subtitle,
+    /// An order-summary row: icon circle, bold title + gray subtitle,
     /// value and chevron on the right.
     private func orderRow(iconText: String? = nil, iconHex: UInt = 0,
                           systemIcon: String? = nil,
@@ -343,7 +343,8 @@ struct ComposeView: View {
         guard canPost else { return }
         UINotificationFeedbackGenerator().notificationOccurred(.success)
         focused = false
-        // TODO: send to the backend; local-only for now
+        // HomeView persists it (optimistic insert, rolled back on failure).
+        // Poll options and attachments aren't sent yet.
         var extras: [String] = []
         if let poll = pollOptions {
             extras.append("Poll · \(poll.filter { !$0.isEmpty }.count) options")
@@ -361,8 +362,8 @@ struct ComposeView: View {
             title: text.trimmingCharacters(in: .whitespacesAndNewlines),
             preview: extras.joined(separator: " · "),
             author: model.handle.isEmpty ? "you" : "@\(model.handle)",
-            initials: "JP",
-            avatarHex: 0xDFDFDF,
+            initials: DisplayFormat.initials(from: model.handle),
+            avatarHex: DisplayFormat.avatarHex(from: model.handle),
             badge: nil,
             answers: 0,
             isMine: true

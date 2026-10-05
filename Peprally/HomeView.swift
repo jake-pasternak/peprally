@@ -550,24 +550,25 @@ struct HomeView: View {
 
 }
 
-/// The signed-in user's avatar: the profile photo when the asset exists,
-/// initials otherwise.
+/// The signed-in user's avatar: initials from their handle. The demo build
+/// shows the bundled demo photo instead.
 struct ProfileAvatar: View {
+    @Environment(AppModel.self) private var model
     var size: CGFloat = 32
 
     var body: some View {
         ZStack {
-            if UIImage(named: "avatar-jake") != nil {
-                Image("avatar-jake")
-                    .resizable()
-                    .scaledToFill()
-                    .grayscale(1.0)   // keep photo avatars inside the monochrome system
-            } else {
-                Circle().fill(Color(hex: 0xDFDFDF))
-                Text("JP")
-                    .font(.system(size: size * 0.38, weight: .semibold))
-                    .foregroundStyle(Ink.secondary)
-            }
+            #if DEMO
+            Image("avatar-jake")
+                .resizable()
+                .scaledToFill()
+                .grayscale(1.0)   // keep photo avatars inside the monochrome system
+            #else
+            Circle().fill(Color(hex: DisplayFormat.avatarHex(from: model.handle)))
+            Text(DisplayFormat.initials(from: model.handle))
+                .font(.system(size: size * 0.38, weight: .semibold))
+                .foregroundStyle(Ink.secondary)
+            #endif
         }
         .frame(width: size, height: size)
         .clipShape(Circle())
