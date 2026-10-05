@@ -1,0 +1,27 @@
+# Xcode — the project is generated from project.yml by XcodeGen
+*.xcodeproj
+xcuserdata/
+DerivedData/
+build/
+*.ipa
+*.xcarchive
+*.dSYM.zip
+ExportOptions.plist
+
+# Local config — copy Peprally/Backend/SupabaseConfig.example.swift
+Peprally/Backend/SupabaseConfig.swift
+.env*
+
+# Supabase CLI local state
+supabase/.temp/
+supabase/.branches/
+
+# Private working notes
+CLAUDE.md
+APP-STORE-SUBMISSION.md
+
+.DS_Store
+
+# Working files (setup notes, SQL-editor paste bundle)
+supabase/BACKEND.md
+supabase/apply_all.sql

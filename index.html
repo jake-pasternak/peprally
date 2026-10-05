@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Peprally — Sign up</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html, body { height: 100%; }
+
+  body {
+    background: #fff;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text",
+                 "Helvetica Neue", Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    color: #09090b;
+    display: flex;
+    justify-content: center;
+  }
+
+  .screen {
+    width: 100%;
+    max-width: 402px;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    padding: 0 20px calc(16px + env(safe-area-inset-bottom));
+  }
+
+  /* --- hero: the live ring carousel --- */
+  .hero {
+    height: 372px;
+    margin: 24px 5px 0;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .hero iframe {
+    /* oversize and center so the ring bleeds to the hero's edges like the design */
+    width: 126%;
+    height: 126%;
+    margin: -13%;
+    border: 0;
+    pointer-events: none;
+  }
+
+  /* --- headline --- */
+  h1 {
+    margin-top: 34px;
+    font-size: 24px;
+    line-height: 1.16;
+    font-weight: 700;
+    letter-spacing: -0.96px;
+    text-align: center;
+  }
+  .sub {
+    margin: 13px auto 0;
+    max-width: 254px;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: -0.64px;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.21);
+  }
+
+  /* --- feature card --- */
+  .features {
+    margin-top: 32px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 12px;
+    padding: 18px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+  .feature {
+    display: flex;
+    align-items: center;
+    gap: 21px;
+  }
+  .feature .emoji {
+    font-size: 32px;
+    line-height: 1;
+    width: 36px;
+    text-align: center;
+    flex: none;
+  }
+  .feature h2 {
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: -0.28px;
+    line-height: 1.04;
+  }
+  .feature p {
+    margin-top: 5px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: -0.24px;
+    line-height: 1.04;
+    color: #ccc;
+  }
+
+  /* --- actions --- */
+  .actions {
+    margin-top: auto;
+    padding-top: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .btn {
+    height: 38px;
+    border: 0;
+    border-radius: 100px;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: -0.48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    cursor: pointer;
+  }
+  .btn.apple {
+    background: #2e2e2e;
+    color: #fff;
+  }
+  .btn.apple .logo {
+    font-size: 16px;
+    letter-spacing: -0.64px;
+    transform: translateY(-1px);
+  }
+  .btn.plain {
+    background: rgba(69, 69, 69, 0.05);
+    color: #000;
+  }
+  .btn.plain .arrow { font-size: 11px; }
+</style>
+</head>
+<body>
+  <main class="screen">
+    <div class="hero">
+      <iframe src="ring/index.html?bg=ffffff" title="Peprally"></iframe>
+    </div>
+
+    <h1>The most accurate place to<br>learn about your health.</h1>
+    <p class="sub">Learn about your health from people who know.</p>
+
+    <section class="features">
+      <div class="feature">
+        <span class="emoji">🧙</span>
+        <div>
+          <h2>Vetted Answers</h2>
+          <p>From verified experts and vetted members.</p>
+        </div>
+      </div>
+      <div class="feature">
+        <span class="emoji">🦠</span>
+        <div>
+          <h2>Evidence-graded</h2>
+          <p>See the science behind every answer.</p>
+        </div>
+      </div>
+      <div class="feature">
+        <span class="emoji">🛸</span>
+        <div>
+          <h2>Ask anything</h2>
+          <p>A community that takes health seriously.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="actions">
+      <button class="btn apple"><span class="logo">&#xF8FF;</span> Sign up with Apple</button>
+      <button class="btn plain">Sign up <span class="arrow">&#8599;</span></button>
+    </div>
+  </main>
+</body>
+</html>
