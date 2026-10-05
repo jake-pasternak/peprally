@@ -36,6 +36,21 @@ targets:
         CODE_SIGN_STYLE: Automatic
         DEVELOPMENT_TEAM: L7J84MA224
         CODE_SIGN_ENTITLEMENTS: Peprally/Peprally.entitlements
+    scheme:
+      testTargets:
+        - PeprallyTests
+
+  PeprallyTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: PeprallyTests
+    dependencies:
+      - target: Peprally
+    settings:
+      base:
+        GENERATE_INFOPLIST_FILE: YES
+        SWIFT_VERSION: "5.9"
 
   # A second app that is nothing but the demo: same code, fixtures compiled in
   # via the DEMO flag, so tapping the icon opens the full feed with no env vars
