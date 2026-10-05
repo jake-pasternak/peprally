@@ -17,14 +17,7 @@ targets:
     sources:
       - path: Peprally
         excludes:
-          - "Resources/ring"
-          - "Resources/logo-frames"
-      - path: Peprally/Resources/ring
-        type: folder
-        buildPhase: resources
-      - path: Peprally/Resources/logo-frames
-        type: folder
-        buildPhase: resources
+          - "Backend/SupabaseConfig.example.swift"
     settings:
       base:
         GENERATE_INFOPLIST_FILE: YES
@@ -57,14 +50,7 @@ targets:
     sources:
       - path: Peprally
         excludes:
-          - "Resources/ring"
-          - "Resources/logo-frames"
-      - path: Peprally/Resources/ring
-        type: folder
-        buildPhase: resources
-      - path: Peprally/Resources/logo-frames
-        type: folder
-        buildPhase: resources
+          - "Backend/SupabaseConfig.example.swift"
     settings:
       base:
         GENERATE_INFOPLIST_FILE: YES
